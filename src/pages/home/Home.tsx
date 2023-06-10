@@ -21,7 +21,7 @@ export const Home = () => {
         <main className='w-full container mx-auto flex  justify-center my-5' id="#home">
            <section className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-8 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
              {
-                posts.items?.map((post) => (
+                posts?.items?.map((post: any) => (
                     <article className="flex flex-col justify-between  w-[350px] h-[200px] border rounded-md p-4 bg-[#eeeeee]">
                         <div className="flex flex-col gap-2 justify-center place-content-center">
                            <div className="w-[280px]"> <h1 className="font-bold text-lg font-roboto">{post.title}</h1></div>

@@ -1,17 +1,29 @@
 
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 
-const Projects =(props: []) => {
-  const topics = [];
+const Projects =() => {
+  const [yaserDate, setYaserData] = useState([]);
+  const fetchProjects = async () => {
+      await axios.get("https://api.github.com/users/yasermoamd/repos")
+      .then((data) => {
+        setYaserData(data.data);
+      })
+  }
+  useEffect(() => {
+    fetchProjects();
+  }, [])
+  const topics: { name: any; }[] = [];
   return (
     <main className="container mx-auto flex justify-center" id="#project">  
       <section className="flex flex-col gap-2">
           <h1>Projectt</h1>
           <div className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-8 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
             {
-              props.props?.map((data:any) => (
+              yaserDate?.map((data:any) => (
                 <div className="flex flex-col  justify-between 
                        w-[350px] h-[240px] border-2 border-gray-500 mb-4 rounded-lg" key={data.id}>
                    <div className="flex justify-center items-center">
