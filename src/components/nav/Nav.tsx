@@ -1,31 +1,39 @@
-import { Link } from 'react-router-dom';
 import './nav.css';
-export const Nav = () => {
+import { BsSearch } from 'react-icons/bs';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+
+export const Nav = () => {   
     return (
-        <header className='flex justify-around items-center my-3'>
-             <div>
-                <img 
-                    className='w-[45px]'
-                    src="/yaser-logo.jpg" 
-                    alt="Yaser Ebrahim" />
-             </div>
-             <ul className='flex gap-4'>
-                <li className='text-[#241e38]'>
-                    <Link to='/'>Home</Link>
-                </li>
-                <li className='text-[#241e38]'>
-                    <Link to='/skills'>Skills</Link>
-                </li>
-                <li className='text-[#241e38]'>
-                    <Link to='https://blog.yaserebrahim.com' target='_blank'>Blog</Link>
-                </li>
-                <li className='text-[#241e38]'>
-                    <Link to='/contact'>Contact</Link>
-                </li>
-             </ul>
-            <div className='border-orange-500 border-2 w-[120px] h-[40px] rounded-xl text-[#241e38] flex justify-center items-center cursor-pointer'>
-                 <p>Hire Me</p>
-             </div>
-        </header>
+        <div className='sticky z-30 top-0 border-b mb-8'>
+          {Head()}
+         </div>
     )
+
+    function Head() {
+        return (
+            <header className="bg-white w-full h-[90px]">
+                   <div className='flex justify-around items-center gap-2'>
+                    <div className='flex justify-center items-center mt-1'>
+                         <img src="/yaser_logo.png" />
+                    </div>
+                     <div className='justify-center items-start gap-8 hidden sm:flex'>
+                     <Link to={"blog"} className='text-xl font-extrabold cursor-pointer'>Blog</Link>
+                     <div className='text-xl font-extrabold cursor-pointer'>Projects</div>
+                     <div className='text-xl font-extrabold cursor-pointer'>About</div>
+                     <div className='text-xl font-extrabold cursor-pointer'>Contact</div>
+                     </div>
+                     <div className=''>
+                        <BsSearch className="w-5 h-5" />
+                     </div>
+                     <div>
+                        <img src="" />
+                     </div>
+                     <div className=''>
+                        <AiOutlineMenu className="w-5 h-5 flex sm:hidden md:hidden" />
+                     </div>
+                </div>
+           </header>
+        )
+    }
 }

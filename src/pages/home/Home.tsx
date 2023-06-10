@@ -1,50 +1,52 @@
-import { Nav } from "../../components/nav/Nav"
-import { AiOutlineGithub, AiOutlineLinkedin } from 'react-icons/ai';
-import { NavLink } from "react-router-dom";
+import axios from "axios"
+import moment from "moment";
+import { useEffect, useState } from "react"
+import { FiExternalLink } from 'react-icons/fi';
+import { Link } from "react-router-dom";
 
 export const Home = () => {
+    const [posts, setPosts ] = useState([]);
+    const fetchPost = async () => {
+        await axios.get("https://www.googleapis.com/blogger/v3/blogs/3680796929179959115/posts?key=AIzaSyAUG21yyLbdSa1bOAdAk0DkYpgSg1FPQeI")
+        .then((data) => setPosts(data.data));
+    }
+    useEffect(() => {
+        fetchPost();
+    }, [])
+    const formatDate = (date: any) => {
+        const dTime = moment(date).format("MMM Do YY");
+        return dTime;
+    }
     return (
-        <main>
-            <Nav />
-            <div className="flex justify-center items-center flex-col">
-                <div className="mt-[5rem]">
-                    <p className="text-[#fff]">Hi, I Am <span className="text-[#E8630A]">Yaser Ibrahim</span></p>
-                </div>
-                <div className="mb-2">
-                    <p className="text-[#FFFFFF] font-bold font-mono text-[48px] shadow-lg">Full-stack JS&TS Developer</p>
-                </div>
-                <div>
-                    <p className="text-white">I have a passion for expressive typography, perfectly color balanced photos, and ramen. </p>
-                </div>
-
-                {profileImage()}
-                {socialLinks()}
-            </div>
+        <main className='w-full container mx-auto flex  justify-center my-5' id="#home">
+           <section className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-8 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
+             {
+                posts.items?.map((post) => (
+                    <article className="flex flex-col justify-between  w-[350px] h-[200px] border rounded-md p-4 bg-[#eeeeee]">
+                        <div className="flex flex-col gap-2 justify-center place-content-center">
+                           <div className="w-[280px]"> <h1 className="font-bold text-lg font-roboto">{post.title}</h1></div>
+                           <div className="flex gap-5 justify-start items-center">
+                               <span className="text-[12px]">{post.author.displayName}</span>
+                               <span className="text-[12px]">{formatDate(post.published)}</span>
+                           </div>
+                        </div>
+                        <div className="flex justify-between items-start">
+                        <div className="text-[9px] flex gap-4 justify-end items-start">
+                           {post.labels}
+                        </div>
+                        <Link to={post.url} target="_blank" className="flex gap-4 justify-end items-end w-[100px]">
+                         <div className="flex gap-4 justify-center items-end">
+                          <div className="flex text-[10px]">Reading?</div>
+                          <div><FiExternalLink/></div>
+                        </div>
+                        </Link>
+                        </div>
+                       
+                    </article>
+                ))
+             }
+          </section>
         </main>
     )
-
-    function profileImage() {
-        return (
-            <div className="w-[160px] h-[160px] bg-[#E8630A] rounded-full flex justify-center items-center my-6">
-                <img className="w-[150px] h-[150px] rounded-full" src="/yaser.jfif" alt="Yaser Ibrahim" />
-            </div>
-        )
-    }
-
-    function socialLinks() {
-        return (
-            <div className="flex justify-center items-center gap-8 text-white">
-                <div>
-                    <NavLink to='https://github.com/yasermoamd' target="_blank">
-                        <AiOutlineGithub className="w-6 h-6 cursor-pointer" />
-                    </NavLink>
-                </div>
-                <div>
-                    <NavLink to='https://www.linkedin.com/in/yasermo7amd/' target="_blank">
-                        <AiOutlineLinkedin className="w-6 h-6 cursor-pointer" />
-                    </NavLink>
-                </div>
-            </div>
-        )
-    }
+  
 }

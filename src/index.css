@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root{ 
-    background-color: #212121;;
-    font-family: 'Lato', monospace;
+html {
+    scroll-behavior: smooth;
+}
+
+:root{  
+    background-color: #fffcfc;
+    font-family: "Roboto Mono", sans-serif;
 }
