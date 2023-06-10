@@ -5,13 +5,25 @@ import { FiExternalLink } from 'react-icons/fi';
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-    const [posts, setPosts ] = useState([]);
+    const [posts, setPosts ] = useState<any[]>([]);
     const fetchPost = async () => {
         await axios.get("https://www.googleapis.com/blogger/v3/blogs/3680796929179959115/posts?key=AIzaSyAUG21yyLbdSa1bOAdAk0DkYpgSg1FPQeI")
         .then((data) => setPosts(data.data));
     }
+    const topics: { item: any; }[] = [];
+
+    const addData = () => {
+        posts.forEach((topic) => {
+            var dataItem = {
+                item: topic.item
+            };
+            topics.push(dataItem);
+        })
+    }
+
     useEffect(() => {
         fetchPost();
+        addData();
     }, [])
     const formatDate = (date: any) => {
         const dTime = moment(date).format("MMM Do YY");
@@ -20,8 +32,10 @@ export const Home = () => {
     return (
         <main className='w-full container mx-auto flex  justify-center my-5' id="#home">
            <section className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-8 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
+            
              {
-                posts?.items?.map((post: any) => (
+
+                topics.map((post: any) => (
                     <article className="flex flex-col justify-between  w-[350px] h-[200px] border rounded-md p-4 bg-[#eeeeee]">
                         <div className="flex flex-col gap-2 justify-center place-content-center">
                            <div className="w-[280px]"> <h1 className="font-bold text-lg font-roboto">{post.title}</h1></div>
