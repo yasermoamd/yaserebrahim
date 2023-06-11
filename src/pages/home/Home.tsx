@@ -38,7 +38,7 @@ export const Home = () => {
       <h1 className="my-3 font-bold font-roboto text-xl underline">Blogger</h1>
       <section className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-4 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
          {posts.map((post: Post) => (
-          <article className="flex flex-col justify-between  w-[350px] h-[200px] border rounded-md p-4 bg-[#eeeeee]">
+          <article className="flex flex-col justify-between  w-[350px] h-[200px] border rounded-md p-4 bg-[#eeeeee] border-gray-500">
             <div className="flex flex-col gap-2 justify-center place-content-center">
               <div className="w-[280px]">
                 <h1 className="font-bold text-lg font-roboto">{post.title}</h1>

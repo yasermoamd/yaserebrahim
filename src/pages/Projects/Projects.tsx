@@ -21,7 +21,7 @@ const Projects =() => {
     <main className="container mx-auto flex flex-col justify-center" id="#project">  
       <h1 className='my-5 font-bold font-roboto text-xl underline'>Projects</h1>
       <section className="flex flex-col gap-2">
-           <div className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-8 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
+           <div className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-4 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
             {
               yaserDate?.map((data:any) => (
                 <div className="flex flex-col  justify-between 
