@@ -9,12 +9,13 @@ import { Link } from 'react-router-dom';
 function App() { 
   const date = new Date().getFullYear();
   return (
-     <main className='container mx-auto flex flex-col justify-around'>
-        <Nav /> 
-        <section id='#blog' className='mx-[10rem]'>
+    <>
+      <Nav /> 
+      <main className='flex flex-col justify-around items-center sm:flex sm:justify-center items-center'>
+        <section id='#blog' className=''>
         <Home />
        </section>
-       <section id='#skills' className='mx-[10rem]'>
+       <section id='#skills' className=''>
         <Projects  />
        </section>
        <section>
@@ -25,6 +26,7 @@ function App() {
        <p>© {date}  <Link to="/">Yaser Ibrahim</Link></p> 
        </footer>
     </main>
+    </>
   )
 }
 

@@ -16,11 +16,11 @@ export const Nav = () => {
                     <Link to="/" className='flex justify-center items-center mt-1'>
                          <img src="/yaser_logo.png" />
                     </Link>
-                     <div className='justify-center items-start gap-8 hidden sm:flex'>
+                     <div className='justify-center items-start gap-8 lg:flex sm:hidden'>
                      <div className='text-xl font-extrabold cursor-pointer'>Blog</div>
                      <div className='text-xl font-extrabold cursor-pointer'>Projects</div> 
                      </div>
-                     <div className='flex justify-center items-center gap-4'>
+                     <div className='hidden lg:flex md:flex justify-center items-center gap-4'>
                          <Link to="https://github.com/yasermoamd/yaserebrahim" target='_blank'>
                             <AiFillGithub className="w-7 h-7" />
                          </Link>
@@ -28,13 +28,11 @@ export const Nav = () => {
                            <AiFillLinkedin className="w-7 h-7" />
                          </Link>
                      </div>
-                     <div>
-                        <img src="" />
-                     </div>
                      <div className=''>
-                        <AiOutlineMenu className="w-5 h-5 flex sm:hidden md:hidden" />
-                     </div>
+                        <AiOutlineMenu className="w-5 h-5 md:hidden lg:hidden sm:flex hidden" />
+                    </div>
                 </div>
+                
            </header>
         )
     }
