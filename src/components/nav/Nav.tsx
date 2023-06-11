@@ -1,6 +1,5 @@
 import './nav.css';
-import { BsSearch } from 'react-icons/bs';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineMenu, AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 export const Nav = () => {   
@@ -14,17 +13,22 @@ export const Nav = () => {
         return (
             <header className="bg-white w-full h-[90px]">
                    <div className='flex justify-around items-center gap-2'>
-                    <div className='flex justify-center items-center mt-1'>
+                    <Link to="/" className='flex justify-center items-center mt-1'>
                          <img src="/yaser_logo.png" />
-                    </div>
+                    </Link>
                      <div className='justify-center items-start gap-8 hidden sm:flex'>
-                     <Link to={"blog"} className='text-xl font-extrabold cursor-pointer'>Blog</Link>
+                     <div className='text-xl font-extrabold cursor-pointer'>Blog</div>
                      <div className='text-xl font-extrabold cursor-pointer'>Projects</div>
                      <div className='text-xl font-extrabold cursor-pointer'>About</div>
                      <div className='text-xl font-extrabold cursor-pointer'>Contact</div>
                      </div>
-                     <div className=''>
-                        <BsSearch className="w-5 h-5" />
+                     <div className='flex justify-center items-center gap-4'>
+                         <Link to="https://github.com/yasermoamd/yaserebrahim" target='_blank'>
+                            <AiFillGithub className="w-7 h-7" />
+                         </Link>
+                         <Link to="https://www.linkedin.com/in/yasermo7amd/" target='_blank'>
+                           <AiFillLinkedin className="w-7 h-7" />
+                         </Link>
                      </div>
                      <div>
                         <img src="" />
