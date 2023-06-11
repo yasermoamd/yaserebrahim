@@ -18,9 +18,7 @@ export const Nav = () => {
                     </Link>
                      <div className='justify-center items-start gap-8 hidden sm:flex'>
                      <div className='text-xl font-extrabold cursor-pointer'>Blog</div>
-                     <div className='text-xl font-extrabold cursor-pointer'>Projects</div>
-                     <div className='text-xl font-extrabold cursor-pointer'>About</div>
-                     <div className='text-xl font-extrabold cursor-pointer'>Contact</div>
+                     <div className='text-xl font-extrabold cursor-pointer'>Projects</div> 
                      </div>
                      <div className='flex justify-center items-center gap-4'>
                          <Link to="https://github.com/yasermoamd/yaserebrahim" target='_blank'>
