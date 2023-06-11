@@ -20,7 +20,7 @@ const Projects =() => {
   return (
     <main className="container mx-auto flex justify-center" id="#project">  
       <section className="flex flex-col gap-2">
-          <h1>Projectt</h1>
+          <h1>Projects</h1>
           <div className="grid gap-6 lg:grid lg:grid-cols-3 lg:gap-8 md:grid md:grid-cols-2 md:gap-6 sm:grid sm:grid-cols-1 sm:gap-[4rem]">
             {
               yaserDate?.map((data:any) => (
@@ -43,15 +43,15 @@ const Projects =() => {
                       {
                         topics.slice(0, 6)?.map((topic) => 
                         <span 
-                          className='bg-[#eeeeee] text-[12px] rounded-xl p-2'
+                          className='bg-[#eeeeee] text-black font-bold font-roboto text-[12px] rounded-xl p-2'
                           key={topic.name}>{topic.name}</span>)
                       }
                     </div>
                    </div>
                    <div className='flex justify-between gap-7 items-center mx-4 my-2'>
-                      <div>
+                      <Link to={data.owner.html_url} target='_blank' className='cursor-pointer'>
                         <img src="https://avatars.githubusercontent.com/u/94254041" className='w-[40px] h-[40px] rounded-full' alt="" />
-                      </div>
+                      </Link>
                       <Link to={data.html_url} target="_blank"><FiExternalLink className="w-6 h-6" /></Link>
                    </div>
                 </div>
