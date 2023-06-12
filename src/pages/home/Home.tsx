@@ -33,9 +33,8 @@ export const Home = () => {
         className="grid grid-cols-1 gap-4
       lg:grid lg:grid-cols-2 tablet:grid tablet:grid-cols-2
       laptop:grid laptop:grid-cols-3 laptop:gap-10 desktop:grid desktop:grid-cols-4
-      "
-      >
-        {posts.map((post: any) => (
+      ">
+        {posts.map((post) => (
           <ArticleCard
             id={post.id}
             title={post.title}

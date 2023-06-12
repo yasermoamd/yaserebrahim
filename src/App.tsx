@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+ 
 import './App.css';
 import { Nav } from './components/nav/Nav';
 import { Home } from './pages/home/Home';

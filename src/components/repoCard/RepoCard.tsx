@@ -1,10 +1,11 @@
 import { FiExternalLink } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+
 interface IRepoCard {
   id: string;
   name: string;
-  topics: any;
+  topics: string[];
   owner: {
     html_url: string;
   };
@@ -12,12 +13,15 @@ interface IRepoCard {
 }
 
 const RepoCard: React.FC<IRepoCard> = (data) => {
-  const topics: { name: any }[] = [];
+  // Remove the `any` type from `topics`
+  const topics = data.topics.map((topic) => ({
+    name: topic,
+  }));
 
   return (
     <article
       key={data.id}
-      className="flex flex-col justify-between  w-[350px] h-[240px] border rounded-md p-4 bg-[#eeeeee] border-gray-500"
+      className="flex flex-col justify-between w-[350px] h-[240px] border rounded-md p-4 bg-[#eeeeee] border-gray-500"
     >
       <div className="flex justify-center items-center">
         <h1>{data.name}</h1>
@@ -26,14 +30,8 @@ const RepoCard: React.FC<IRepoCard> = (data) => {
         <span className="underline my-1 ml-4" id="tech_used">
           Technology Used
         </span>
-        {data.topics.forEach((top: any) => {
-          var topicsList = {
-            name: top,
-          };
-          topics.push(topicsList);
-        })}
         <div className="grid grid-cols-2 gap-2 mx-3 capitalize">
-          {topics.slice(0, 6)?.map((topic) => (
+          {topics.slice(0, 6).map((topic) => (
             <span
               className="bg-[#eeeeee] text-black font-bold font-roboto text-[12px] rounded-xl p-2"
               key={topic.name}

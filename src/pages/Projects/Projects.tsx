@@ -24,9 +24,8 @@ const Projects = () => {
         className="grid grid-cols-1 gap-8
     lg:grid lg:grid-cols-2 lg:gap-8 tablet:grid tablet:grid-cols-2
     laptop:grid laptop:grid-cols-3 laptop:gap-10 desktop:grid desktop:grid-cols-4
-    "
-      >
-        {yaserDate?.map((data: any) => (
+    ">
+        {yaserDate?.map(data => (
           <RepoCard
             id={data.id}
             name={data.name}
