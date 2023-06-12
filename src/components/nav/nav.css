@@ -1,7 +1,7 @@
 .flexcontainer {
-    display: flex;
-    flex-direction: column;
-    gap: 9rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}

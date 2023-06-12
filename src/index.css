@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-:root{  
-    background-color: #fffcfc;
-    font-family: "Work Sans", "Roboto Mono", sans-serif;
+:root {
+  background-color: #fffcfc;
+  font-family: 'Work Sans', 'Roboto Mono', sans-serif;
 }
