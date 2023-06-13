@@ -6,8 +6,8 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": ">=16.0.0",
-    "yarn": ">=1.22.0",
+    "node": ">=18.16.0",
+    "yarn": "^1.22.19",
     "npm": "please-use-yarn"
   },
   "scripts": {
