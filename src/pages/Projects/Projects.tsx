@@ -2,18 +2,31 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import RepoCard from '../../components/repoCard/RepoCard';
 
+interface IProject {
+  id: string;
+  name: string;
+  topics: string[];
+  owner: {
+    html_url: string;
+  };
+  html_url: string;
+}
+
 const Projects = () => {
-  const [yaserDate, setYaserData] = useState([]);
+  const [projects, setProjects] = useState<IProject[]>([]);
+
   const fetchProjects = async () => {
     await axios
-      .get('https://api.github.com/users/yasermoamd/repos')
+      .get(`https://api.github.com/users/yasermoamd/repos`)
       .then((data) => {
-        setYaserData(data.data);
+        setProjects(data.data);
       });
   };
+
   useEffect(() => {
     fetchProjects();
   }, []);
+
   return (
     <main
       className="w-full container mx-auto flex flex-col justify-around"
@@ -25,15 +38,15 @@ const Projects = () => {
     lg:grid lg:grid-cols-2 lg:gap-8 tablet:grid tablet:grid-cols-2
     laptop:grid laptop:grid-cols-3 laptop:gap-10 desktop:grid desktop:grid-cols-4
     ">
-        {yaserDate?.map(data => (
+        {projects?.map(project => (
           <RepoCard
-            id={data.id}
-            name={data.name}
-            topics={data.topics}
+            id={project.id}
+            name={project.name}
+            topics={project.topics}
             owner={{
-              html_url: data.html_url,
+              html_url: project.owner.html_url,
             }}
-            html_url={data.html_url}
+            html_url={project.html_url}
           />
         ))}
       </section>

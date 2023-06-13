@@ -45,25 +45,8 @@ export const Home = () => {
       lg:grid lg:grid-cols-2 tablet:grid tablet:grid-cols-2
       laptop:grid laptop:grid-cols-3 laptop:gap-10 desktop:grid desktop:grid-cols-4
       ">
-        {
-          /**
-           
-            id={post.id}
-            title={post.title}
-            published={post.published}
-            author={{
-              displayName: post.author.displayName,
-            }}
-            labels={post.labels}
-            url={post.url}
-            data-testid="article-card"
-            
-           */
-        }
         {posts.map((post) => (
-          <ArticleCard id={post.id} title={post.title} published={post.published} author={{
-            displayName: post.author.displayName
-          }} labels={post.labels} url={post.url}          />
+          <ArticleCard {...post}     />
         ))}
       </section>
     </main>
