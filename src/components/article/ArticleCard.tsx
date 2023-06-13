@@ -34,7 +34,7 @@ const ArticleCard: React.FC<IArticleCard> = (post) => {
       </div>
       <div className="flex justify-between items-start">
         <div className="text-[9px] flex gap-4 justify-end items-start">
-          {post.labels}
+          {post.labels.join(', ')}
         </div>
         <Link
           to={post.url}
