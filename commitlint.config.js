@@ -32,6 +32,7 @@ export default {
       [
         'build',
         'chore',
+        'debug',
         'ci',
         'docs',
         'feat',

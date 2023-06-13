@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 interface IArticleCard {
   id: string;
   title: string;
-  published: string;
+  published: Date;
   author: {
     displayName: string;
   };
-  labels: string;
+  labels: string[];
   url: string;
 }
 
 const ArticleCard: React.FC<IArticleCard> = (post) => {
-  const formatDate = (date: string) => {
+  const formatDate = (date: Date) => {
     const dTime = moment(date).format('MMM Do YY');
     return dTime;
   };

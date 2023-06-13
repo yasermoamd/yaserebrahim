@@ -2,8 +2,19 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ArticleCard from '../../components/article/ArticleCard';
 
+interface IPost {
+  id: string;
+  title: string;
+  published: Date;
+  author: {
+    displayName: string;
+  };
+  labels: string[];
+  url: string;
+}
+
 export const Home = () => {
-  const [posts, setPosts] = useState<[]>([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
 
   const fetchPosts = async () => {
     const response = await axios.get(
@@ -34,18 +45,25 @@ export const Home = () => {
       lg:grid lg:grid-cols-2 tablet:grid tablet:grid-cols-2
       laptop:grid laptop:grid-cols-3 laptop:gap-10 desktop:grid desktop:grid-cols-4
       ">
-        {posts.map((post) => (
-          <ArticleCard
+        {
+          /**
+           
             id={post.id}
             title={post.title}
             published={post.published}
             author={{
-              displayName: post.displayName,
+              displayName: post.author.displayName,
             }}
             labels={post.labels}
             url={post.url}
             data-testid="article-card"
-          />
+            
+           */
+        }
+        {posts.map((post) => (
+          <ArticleCard id={post.id} title={post.title} published={post.published} author={{
+            displayName: post.author.displayName
+          }} labels={post.labels} url={post.url}          />
         ))}
       </section>
     </main>
